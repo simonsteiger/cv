@@ -83,7 +83,7 @@ Programmering {#skills}
 ```
 
 ```{asis, echo = params$lang == "eng"}
-Programming languages {#skills}
+Languages {#skills}
 --------------------------------------------------------------------------------
 ```
 
