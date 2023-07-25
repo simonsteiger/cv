@@ -19,3 +19,8 @@ rmarkdown::render("cv.rmd",
 # Convert to PDF using Pagedown
 pagedown::chrome_print(input = tmp_html_cv_loc,
                        output = "cv.pdf")
+
+
+# Upon updating R, reinstall from github and make sure to get icon dependency
+# devtools::install_github("nstrayer/datadrivencv")
+# remotes::install_github('mitchelloharawild/icons@v0.1.0')

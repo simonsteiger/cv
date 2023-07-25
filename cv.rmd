@@ -3,7 +3,7 @@ title: "Simon Steiger's CV"
 author: Simon Steiger
 date: "`r Sys.Date()`"
 params:
-  lang: "swe"
+  lang: "eng"
   pdf_mode:
     value: true
 output:
@@ -25,7 +25,7 @@ source("cv_printing_functions.r")
 CV <- create_CV_object(
   # ENG https://docs.google.com/spreadsheets/d/1Ol2mTJCFrY1hPBRjdpDoDNwdfsvdRGryLrOy6OYNKzY/edit#gid=0
   # SWE https://docs.google.com/spreadsheets/d/1UTJIz1DB3IqirKpPtkw4O7SoQvPpeW0O_58u-MHnO6Q/edit#gid=1816599202
-  data_location = "https://docs.google.com/spreadsheets/d/1UTJIz1DB3IqirKpPtkw4O7SoQvPpeW0O_58u-MHnO6Q/edit#gid=1816599202",  
+  data_location = "https://docs.google.com/spreadsheets/d/1Ol2mTJCFrY1hPBRjdpDoDNwdfsvdRGryLrOy6OYNKzY/edit#gid=0",  
   pdf_mode = params$pdf_mode
 )
 ```
@@ -117,22 +117,36 @@ Main
 Simon Steiger {#title}
 --------------------------------------------------------------------------------
 
-```{r}
+```{r, results='asis'}
 # Note the special double pipe so we modify the CV object in place
 CV %<>% print_text_block("intro") 
+
+cat("\n\nIn my free time, I keep my statistical skills fresh by working on research projects with my friends. Feel free to have a look at my GitHub page!")
 ```
 
-
-
+```{asis, echo = params$lang == "swe"}
 Utbildning {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
+```
+
+```{asis, echo = params$lang == "eng"}
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+```
 
 ```{r}
 CV %<>% print_section('education')
 ```
 
+```{asis, echo = params$lang == "swe"}
 Industri {data-icon=suitcase}
 --------------------------------------------------------------------------------
+```
+
+```{asis, echo = params$lang == "eng"}
+Industry {data-icon=suitcase}
+--------------------------------------------------------------------------------
+```
 
 ::: aside
 ```{r}
@@ -144,26 +158,35 @@ Industri {data-icon=suitcase}
 CV %<>% print_section('industry_positions')
 ```
 
+```{asis, echo = params$lang == "swe"}
 Vetenskap {data-icon=laptop}
 --------------------------------------------------------------------------------
-<!-- ::: aside -->
-<!-- ```{r} -->
-<!-- CV %<>% print_text_block('research_positions_aside') -->
-<!-- ``` -->
-<!-- ::: -->
+```
 
+```{asis, echo = params$lang == "eng"}
+Research {data-icon=laptop}
+--------------------------------------------------------------------------------
+```
+
+::: aside
+```{r}
+# CV %<>% print_text_block('research_positions_aside')
+```
+:::
 
 ```{r}
 CV %<>% print_section('research_positions')
 ```
 
-<!-- These breaks just force a new page so section doesnt get cut off -->
-<br>
-<br>
-<br>
-
+```{asis, echo = params$lang == "swe"}
 Undervisning {data-icon=chalkboard-teacher}
 --------------------------------------------------------------------------------
+```
+
+```{asis, echo = params$lang == "eng"}
+Teaching {data-icon=chalkboard-teacher}
+--------------------------------------------------------------------------------
+```
 
 ::: aside
 ```{r}
@@ -213,16 +236,16 @@ CV %<>% print_section('teaching_positions')
 
 
 
-<!-- Selected Publications, Posters, and Talks {data-icon=book} -->
-<!-- -------------------------------------------------------------------------------- -->
+Publications {data-icon=book}
+--------------------------------------------------------------------------------
 
-<!-- ```{r} -->
-<!-- CV %<>% print_section('academic_articles') -->
-<!-- ``` -->
+```{r}
+CV %<>% print_section('academic_articles')
+```
 
 
 
-<!-- ```{r} -->
-<!-- CV %<>% print_links() -->
-<!-- ``` -->
+```{r}
+CV %<>% print_links()
+```
 
